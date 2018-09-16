@@ -1,0 +1,6 @@
+I downloaded the FBI NICS Firearm Background Check Data from BuzzFeedNews. The code rips the data from an FBI PDF that then gets parsed and turned into a spreadsheet. When looking at the code, I can tell that there is code included that I think updates every X ticks to see if any data was added or changed. I think it's cool how BuzzFeed News identified that the information wasn't presented in an ideal form, so they worked around it to create the more useful form. 
+
+I'd like to know if the program runs automatically like I thought or is manually done once a month or so.
+
+https://github.com/BuzzFeedNews/nics-firearm-background-checks
+
