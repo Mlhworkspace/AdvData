@@ -15,11 +15,8 @@ html = br.response().read()
 soup = BeautifulSoup(html, "html.parser")
 # Transform the HTML into beautifulsoup object
 
-main_table = soup.find('table',
-# assigns main_table to the soup and to find the 'table' tag and ignore the rest
-    
-)
-# From id to mrc_main_table is what is going to not be ignored
+main_table = soup.find('table', {'class':'accidentOutput'})
+
 row_list = main_table.find_all('tr')
 #establishes the "row_list" variable. Find each table row/select each table row
 for r in row_list:
