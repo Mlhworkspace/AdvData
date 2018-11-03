@@ -3,7 +3,7 @@ import requests, mechanize
 # import requests and mechanize functions 
 from bs4 import BeautifulSoup
 #import the bs4 function set from Beautifulsoup
-url = 'https://report.boonecountymo.org/mrcjava/servlet/SH01_MP.I00290s?max_rows=500'
+url = 'https://www.mshp.dps.missouri.gov/HP71/SearchAction?searchDate=10/31/2017'
 #sets url variable to this website
 br = mechanize.Browser()
 # create variable br which utilizes the "mechanize" object and the "browser" method 
@@ -15,9 +15,9 @@ html = br.response().read()
 soup = BeautifulSoup(html, "html.parser")
 # Transform the HTML into beautifulsoup object
 
-main_table = soup.find('tbody',
-# assigns main_table to the soup and to find the 'tbody' tag and ignore the rest
-    {'id': 'mrc_main_table'}
+main_table = soup.find('table',
+# assigns main_table to the soup and to find the 'table' tag and ignore the rest
+    
 )
 # From id to mrc_main_table is what is going to not be ignored
 row_list = main_table.find_all('tr')
@@ -26,15 +26,16 @@ for r in row_list:
 	# sets loop for every "r" in row list
 
     cell_list = r.find_all('td')
-    # set variable cell_list for every row with table data with the find_all method
+    # set variable cell_list for every cell with __ with the find_all method
 
     if len(cell_list) > 0:
     	# if the length of "cell_list " is greater than 0
         for c in cell_list:
-        	# or each object in cell_list
+        	# or each object in cell_kust
             print c.text.strip()
 # print the text of each cell and removes the leading and trailing characters
         print '----------'
-        # print ______
+        # print '____________'
+
 print 'IT WORKED!'
 # print 'it worked' when the code works
